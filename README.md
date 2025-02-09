@@ -1,7 +1,7 @@
 # Getting Started with Create React App
 
 # Demo: 
-[![Watch the video](https://github.com/VeenaPD/react-concurrency-demo/blob/main/public/demo-video.mov)](https://github.com/VeenaPD/react-concurrency-demo/blob/main/public/demo-video.mov)
+[![Watch the video](https://github.com/VeenaPD/react-concurrency-demo/blob/main/public/demo-video.mp4)](https://github.com/VeenaPD/react-concurrency-demo/blob/main/public/demo-video.mp4)
 
 
 ### **Key Differences From the Concurrency Version**

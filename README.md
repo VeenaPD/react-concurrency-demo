@@ -1,8 +1,11 @@
 # Getting Started with Create React App
 
 # Demo: 
-[![Watch the video](https://github.com/VeenaPD/react-concurrency-demo/blob/main/public/demo-video.mp4)](https://github.com/VeenaPD/react-concurrency-demo/blob/main/public/demo-video.mp4)
-
+![React Concurrency Demo](https://github.com/VeenaPD/react-concurrency-demo/blob/main/public/demo-video.mp4)
+<video controls width="600">
+  <source src="https://github.com/VeenaPD/react-concurrency-demo/blob/main/public/demo-video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ### **Key Differences From the Concurrency Version**
 

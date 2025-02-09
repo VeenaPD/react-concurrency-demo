@@ -1,6 +1,88 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Demo: 
+[![Watch the video](https://github.com/VeenaPD/react-concurrency-demo/blob/main/public/demo-video.mov)](https://github.com/VeenaPD/react-concurrency-demo/blob/main/public/demo-video.mov)
+
+
+### **Key Differences From the Concurrency Version**
+
+1. **No `useDeferredValue`**:
+    - The search filter directly reacts to changes in `search` without deferring low-priority tasks.
+    - This can cause lag if the `stocks` array contains many items.
+2. **No `useTransition`**:
+    - The `addToWatchlist` function immediately updates the state with a delay simulation (`setTimeout`) for loading.
+    - The UI might become unresponsive during this delay.
+3. **Manual Loading State**:
+    - Instead of using `isPending` from `useTransition`, a manual `isLoading` state is implemented to show the "Loading..." indicator.
+4. **Less Responsiveness**:
+    - The application is less optimized for scenarios with high data volume or frequent user interactions.
+    - The UI might feel sluggish when filtering large datasets or updating the watchlist.
+
+### **Challenges Without Concurrency**
+
+1. **Performance**:
+    - Large stock datasets can cause significant delays in rendering and filtering.
+2. **User Experience**:
+    - The manual `isLoading` approach might not provide seamless feedback for complex updates.
+3. **Scalability**:
+    - Handling larger datasets or more complex interactions will require additional optimizations.
+
+### **NOTE: When to Use This Version**
+
+- For small datasets or scenarios where responsiveness is not a critical factor.
+- As a starter implementation before introducing advanced React features for optimization.
+
+This approach is functional but lacks the polish and performance benefits of React's Concurrency Mode.
+
+
+Imagine a **Stock Trading Dashboard** where users can:
+
+1. View live stock prices.
+2. Search for specific stocks.
+3. Add stocks to a watchlist.
+
+Concurrency ensures smooth updates of live stock prices while allowing users to search and interact without lags.
+
+### **Detailed Explanation of the `StockDashboard` Example**
+
+The `StockDashboard` example demonstrates how to use React concurrency features like `useTransition` and `useDeferredValue` in a real-world scenario to ensure smooth user interactions while managing large data sets and frequent updates.
+
+### **Key Features of the Example**
+
+1. **Live Stock Search**: Allows users to search for stocks efficiently in real time.
+2. **Watchlist Management**: Lets users add stocks to a watchlist without interrupting the search or causing UI lags.
+3. **Concurrency Management**: Ensures smooth updates and responsive UI by prioritizing user interactions over background tasks.
+
+### **Concurrency Features in Action**
+
+1. **`useDeferredValue`**:
+    - Defer complex computations (like filtering large lists) to prioritize rendering updates.
+    - Prevents lags when typing in the search box.
+2. **`useTransition`**:
+    - Enables smooth user interactions by treating non-critical state updates (like adding items to the watchlist) as background tasks.
+    - Provides a visual indicator (`isPending`) to inform users of ongoing tasks.
+
+### **Advantages of This Implementation**
+
+- **Improved Responsiveness**: Users can type in the search box without experiencing delays, even with a large stock list.
+- **Smooth Updates**: Adding items to the watchlist doesn’t block rendering or other UI updates.
+- **Enhanced User Experience**: Visual feedback (`Loading...`) keeps users informed about app state.
+
+---
+
+### **Possible Enhancements**
+
+1. **Optimize Large Data Sets**:
+    - Use virtualization libraries like `react-window` or `react-virtualized` to handle large stock lists more efficiently.
+2. **API Integration**:
+    - Fetch live stock data from an external API and integrate Suspense for handling loading states.
+3. **Persistent Watchlist**:
+    - Store the watchlist in a database or local storage to retain selections across sessions.
+
+---
+
+This example showcases how React Concurrency features empower developers to build high-performing and user-friendly applications, especially for use cases involving real-time interactions and heavy data processing.
+
 
 ## Available Scripts
 
@@ -29,42 +111,9 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
